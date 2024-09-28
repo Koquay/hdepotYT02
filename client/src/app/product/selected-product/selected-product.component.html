@@ -1,0 +1,151 @@
+<section>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">
+                <span>Library</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">
+                <span>Data</span>
+            </a>
+        </li>
+    </ol>
+</section>
+<div class="container">
+    <section>
+        <div class="row d-flex justify-content-center">
+            <div class="col col-12 col-md-6">
+                <div>
+                    <h6>{{selectedProduct.brand}}</h6>
+                    <h5>{{selectedProduct.description}}</h5>
+                    <div>
+                        <span [createRatingStars]="selectedProduct.rating">
+                            <span>
+
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-4">
+                        <div class="row">
+                            <div *ngFor="let img of selectedProduct.images"
+                                class="col d-flex justify-content-center align-items-center col-12 p-2">
+                                <div class="card p-2" style="width: 75px;height: 120px;"
+                                    [ngClass]="{'gallery-product': currentGalleryImg === img }">
+                                    <img class="img-fluid card-img-top w-100 d-block" src="assets/img/{{img}}"
+                                        style="height: 97px;" (click)="setCurrentGalleryImg(img)">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img style="width: 277.5px;" src="assets/img/{{currentGalleryImg}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col col-12 col-md-5">
+                <section>
+                    <div class="row">
+                        <div class="col d-flex align-items-lg-center">
+                            <img class="img-fluid" src="assets/img/Screenshot%20from%202024-07-05%2011-07-17.png"
+                                style="width: 39.9px;height: 41px;">
+                            <div class="d-flex align-items-center">
+                                <span class="d-inline-block me-2" style="font-weight: bold;font-size: 39px;">
+                                    <strong>
+                                        {{selectedProduct.price | discountPrice:selectedProduct.discount}}
+                                    </strong>
+                                </span>
+                            </div>
+                            <div>
+                                <small class="d-block">Limit 2 per order</small>
+                                <small class="d-block strike-through">
+                                    {{selectedProduct.price | currency}}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex align-items-center">
+                            <i class="far fa-star fa fa-clock-o me-2 primary-color" style="font-size: 26px;">
+                            </i>
+                            <small>Special Buy ends in&nbsp;12hrs :&nbsp;47mins
+                                :&nbsp;13secs</small>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col d-flex align-items-center">
+                            <img class="me-2" style="width: 38px;"
+                                src="assets/img/Screenshot%20from%202024-07-25%2014-22-41.png">
+                            <small class="fw-bold">
+                                <strong>$234.00&nbsp;</strong>
+                            </small>
+                            <small>/mo</small>
+                        </div>
+                    </div>
+                </section>
+                <section class="mt-5">
+                    <ul class="px-3">
+                        <li *ngFor="let feature of selectedProduct.features">
+                            {{feature}}
+                        </li>
+                        <li>
+                            <a href="#">View More</a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="mt-5">
+                    <div>
+                        <label class="form-label me-2">Color/Finish:</label>
+                        <small class="fw-bold">
+                            <strong>{{productColor}}</strong>
+                        </small>
+                    </div>
+                    <div class="me-2">
+                        <a *ngFor="let color of colorImgs"
+                            (click)="getProductByColor(color)"
+                        >
+                            <img class="highlight-border-2"
+                                src="assets/img/{{color.img}}"
+                                [ngClass]="{
+                                    'highlight-border-2': productColor === color.color}"    
+                            >
+                        </a>
+                    </div>
+                </section>
+                <section class="mt-5">
+                    <div>
+                        <label class="form-label me-2">Total Capacity (cu. ft.):&nbsp;</label>
+                        <small class="fw-bold">{{productSize}}</small>
+                    </div>
+                    <div>
+                        <div class="btn-group" role="group">
+                            <button *ngFor="let size of selectedProduct.sizes"
+                                (click)="setProductSize(size)"
+                                class="btn btn-light capacity-btn fw-bold me-2" type="button" 
+                                [ngClass]="{
+                                    'highlight-border-2': productSize === size}"
+                                style="border-color: var(--bs-tertiary-color);">
+                                {{size}}
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="mt-5">
+                    <button class="btn btn-primary w-75 primary-button" 
+                        (click)="addItemToCart()"
+                        type="button">
+                        <i class="fa fa-cart-plus me-2">
+                        </i>Add To Cart</button>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>

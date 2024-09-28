@@ -1,0 +1,25 @@
+.nav-link {
+    color: var(--bs-secondary-color);
+    
+    font-size: 1.1rem;
+}
+
+.nav-tabs .nav-link.active {
+        font-weight: bold;            
+        border-bottom: 3px solid #fa6302 ;
+}
+
+.call-to-action {
+    color: var(--bs-secondary-color);
+    
+    text-decoration: none;
+    
+     border-bottom: 1px solid black;
+            
+}
+
+// top-pick-data
+.card-img-top {
+    width: 150px !important;
+    height: 200px;
+}

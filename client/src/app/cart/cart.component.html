@@ -1,0 +1,46 @@
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col col-12 col-md-8">
+                <div *ngFor="let item of cart"
+                    class="row d-flex justify-content-between mb-4">
+                    <div class="col d-flex justify-content-center align-items-center col-12 col-md-2 mb-4">
+                        <img style="width: 85.7px;" src="assets/img/{{item.product.images[0]}}">
+                    </div>
+                    <div class="col col-12 col-md-6 mb-4">
+                        <section class="mb-2">
+                            <h6 class="fw-bold">{{item.product.brand}}</h6>
+                            <p>{{item.product.description}}</p>
+                        </section>
+                    </div>
+                    <div class="col col-12 col-md-2">
+                        <h6 class="fw-bold mb-1">{{item.product.price | discountPrice:item.product.discount}}</h6>
+                        <small>
+                            <span style="text-decoration: line-through;">{{item.product.price | currency}}</span>
+                        </small>
+                        <small class="d-block">
+                            <span style="color: rgb(0, 128, 0);">Save {{item.product.discount}}%</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-12 col-md-4">
+                <app-order-summary></app-order-summary>
+
+                <div>
+                    <section class="mt-5">
+                        <button class="btn btn-primary w-100 primary-button" type="button" style="font-size: 20px;font-weight: bold;">Checkout</button>
+                    </section>
+                    <p class="mt-2 mb-0" style="text-align: center;">Or</p>
+                    <section>
+                        <button class="btn btn-primary w-100 paypal-bg" type="button" style="font-size: 20px;font-weight: bold;">
+                        <span class="paypal-dark-blue" style="font-style: italic;">Pay</span>
+                        <span class="paypal-light-blue" style="font-style: italic;">Pal</span>
+                    </button>
+                    </section>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</div>

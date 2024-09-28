@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col d-none d-md-block col-md-2">
+            <app-product-sidebar></app-product-sidebar>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div *ngFor="let product of products"
+                    class="col d-flex justify-content-center col-12 col-md-4 col-lg-3 mb-3">
+                    <div class="card d-flex justify-content-center align-items-center p-2">
+                        <img class="card-img-top w-100 d-block product-img" 
+                            src="assets/img/{{product.images[0]}}"
+                            [routerLink]="['/selected-product', product._id]"
+                            >
+                        <div class="card-body d-flex flex-column justify-content-start">
+                            <div>
+                                <a [routerLink]="['/selected-product', product._id]">
+                                    <small class="me-2 fw-bold">{{product.brand}}</small>
+                                    <small>{{product.description | shortenText}}</small>
+                                </a>
+                                <div>
+                                    <span [createRatingStars]="product.rating">
+                                        <span></span>
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-center"></div>
+                                <span class="d-inline-block me-2" 
+                                    style="font-size: 22px;font-weight: bold;">
+                                    {{product.price | discountPrice:product.discount}}
+                                </span>
+                                <span class="d-inline-block me-2 strike-through" style="font-size: 14px;">
+                                    {{product.price | currency}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="row mt-2 mb-4">
+                <div class="col d-flex justify-content-center">
+                  <nav>
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          style="font-size: 18px"
+                          (click)="getPageByDirection('«')"
+                          aria-label="Previous"
+                        >
+                          <span aria-hidden="true" style="font-size: 18px">«</span>
+                        </a>
+                      </li>
+                      <li class="page-item" *ngFor="let pageNo of pages">
+                        <a
+                          class="page-link"
+                          style="font-size: 18px"
+                          (click)="getPage(pageNo)"
+                          [ngClass]="{
+                            'pagination-background': productSidebar.pageNo === pageNo
+                          }"
+                        >
+                          {{ pageNo }}
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          style="font-size: 18px"
+                          (click)="getPageByDirection('»')"
+                          aria-label="Next"
+                        >
+                          <span aria-hidden="true" style="font-size: 18px">»</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

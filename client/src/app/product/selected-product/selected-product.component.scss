@@ -1,0 +1,21 @@
+.gallery-product {
+    border: 4px solid #fa6302;
+}
+
+.highlight-border-2 {
+    border: 2px solid #fa6302 !important;
+}
+
+.capacity-btn {
+    color: var(--bs-tertiary-color) !important;
+    
+    border-radius: 0px;
+}
+
+.capacity-btn-clicked {
+    color: black !important;
+    
+    border: 2px solid #fa6302 !important;
+    
+    border-radius: 0px;
+}

@@ -1,0 +1,60 @@
+<div>
+
+    <h4 class="mb-4">Filters</h4>
+    <section>
+        <div class="row mb-4">
+            <div class="col col-12">
+                <h6>{{productSidebar.brands.title}}</h6>
+            </div>
+            <div class="col">
+                <div *ngFor="let brand of productSidebar.brands.brands" 
+                    class="form-check mb-2">
+                    <input [(ngModel)]="brand.checked" name="brand" 
+                        (change)="processChange()"
+                        class="form-check-input" type="checkbox" id="formCheck-1"
+                        style="border-width: 3.8px;border-style: solid;">
+                    <label class="form-check-label" for="formCheck-1">{{brand.name}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row mb-4">
+            <div class="col col-12">
+                <h6>{{productSidebar.priceFilter.title}}</h6>
+            </div>
+            <div class="col">
+                <div *ngFor="let priceRange of productSidebar.priceFilter.priceRange" class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="formCheck-6" 
+                        name="priceRange"
+                        [(ngModel)]="priceRange.checked"
+                        (change)="processChange()"
+                        style="border-width: 3.8px;border-style: solid;">
+                    <label class="form-check-label" for="formCheck-6">{{priceRange.label}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row mb-4">
+            <div class="col col-12">
+                <h6>{{productSidebar.ratings.title}}</h6>
+            </div>
+            <div class="col">
+                <div *ngFor="let rating of productSidebar.ratings.ratings" class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="formCheck-11" 
+                        name="rating"
+                        [(ngModel)]="rating.checked"
+                        (change)="processChange()"
+                        style="border-width: 3.8px;border-style: solid;">
+                    <label class="form-check-label" for="formCheck-11">
+                        <span [createRatingStars]="rating.rating">
+                            <span></span>
+                        </span>
+                </label>
+            </div>
+            </div>
+        </div>
+    </section>
+</div>

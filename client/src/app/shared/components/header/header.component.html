@@ -1,0 +1,75 @@
+<header>
+    <!-- Start: Navbar Right Links -->
+    <nav class="navbar navbar-expand-md bg-body py-3 mb-4" style="border-bottom: 2px solid #eaebee ;">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/img/Screenshot%20from%202024-07-08%2010-49-59.png">
+        </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+            <span class="visually-hidden">Toggle navigation</span>
+            <span class="navbar-toggler-icon">
+
+        </span>
+        </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navcol-2">
+                <ul class="navbar-nav d-flex justify-content-center" style="flex-grow: 3;">
+                    <li class="nav-item d-flex align-items-center">
+                        <div style="position: relative;">
+                            <div class="input-group d-flex align-items-center">
+                                <div class="input-group-text input-group-prepend me-2">
+                                    <i class="fas fa-times" style="width: 6px;font-size: 1.4rem;color: red;">
+
+                                </i>
+                                </div>
+                                <input class="form-control searchbox" type="text" placeholder="Search products...">
+                                <div class="input-group-text input-group-append">
+                                    <button class="btn btn-primary primary-bg-color search-button" type="button">
+                                    <i class="fas fa-search">
+
+                                </i>
+                                </button>
+                                </div>
+                            </div>
+                            <!-- <ol class="list-group d-block" style="position: absolute;top: 10;/*top: 10;*/left: 0;z-index: 10;height: 500px;overflow-y: scroll;border-radius: 0px;">
+                                <li class="list-group-item py-1 px-2 list-group-item-warning" style="border: 1px solid var(--bs-tertiary-color) ;">
+                                    <small style="cursor: pointer;">27 cu. ft. French Door Refrigerator in Fingerprint Resistant Stainless with Internal Dispenser, ENERGY STAR</small>
+                                </li>
+                                <li class="list-group-item py-1 px-2 list-group-item-warning" style="border: 1px solid var(--bs-tertiary-color) ;">
+                                    <small style="cursor: pointer;">27 cu. ft. French Door Refrigerator in Fingerprint Resistant Stainless with Internal Dispenser, ENERGY STAR</small>
+                                </li>
+                            </ol> -->
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active d-flex flex-column justify-content-center align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#userSignInModal">
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-user d-inline-block" style="font-size: 18px;">
+
+                            </i>
+                            </div>
+                            <small class="d-inline-block">Sign In</small>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active d-flex flex-column justify-content-center align-items-center" 
+                            [routerLink]="['/cart']"
+                            data-bs-toggle="modal" data-bs-target="#userSignInModal">
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-cart-arrow-down d-inline-block" style="font-size: 18px;">
+
+                            </i>
+                            </div>
+                            <div>
+                                <small class="d-inline-block">Cart</small>
+                                <small class="ms-1">(2)</small>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End: Navbar Right Links -->
+</header>
